@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+:root{
+    font-size:62.5%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #06283D;
+    font-family: 'roboto', sans-serif;
+    
+}
+.card{
+    width: 40rem;
+    padding: 2.8rem 3.2rem;
+    overflow: hidden;
+    border-radius: 1.8rem;
+    font-family: 'roboto', sans-serif;
+    
+    background-color: #f2f2f2;
+    transition: .6s ease-out;
+}
+
+
+.busca {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    
+}
+.busca #searchInput {
+    width: 80%;
+    padding: 1rem;
+    border: 0;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: .5rem;
+    color: #06283D;
+}
+.busca #searchInput::placeholder{
+    font-size:1.4rem ;
+    font-weight: 500;
+    color: #06283D;
+    text-transform: capitalize;
+
+}
+.busca button  {
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+    border: 0;
+    background-color: #dff6ff;
+    color: #FFF;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .4s ease;
+    
+}
+.busca button i{
+    color: #06283D;
+    font-size: 1.8rem;
+}
+.busca button:hover  {
+   opacity: .8;
+   
+}
+.location i {
+
+ color: #06283D;
+ font-size: 2rem;
+ padding: .5rem;
+}
+
+.resultado {
+    width: 30rem;
+    display: none;
+    margin-top: 2rem;
+    border-radius: .5rem;
+    background-color: transparent;
+}
+
+.titulo {
+    width: 100%;
+    color: #06283D;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 2rem;
+}
+.info-temp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+   
+}
+.temp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.tempInfo{
+     position: relative;
+     font-size: 5rem;
+     font-weight: 800;
+     padding: 1rem;
+     text-align: center;
+     color: #06283D;
+     margin-top: 30px;
+     margin-left: 1.6rem;
+    
+}
+.tempInfo sup{
+    position: absolute;
+    margin-left: 4px;
+    font-size: 1.5rem;
+}
+
+
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+   font-family: 'roboto', sans-serif;
+
+}
+.info .humidity{
+    flex: 1;
+    text-align: center;
+   
+
+}
+.info .humidity-info{
+    font-size: 1.5rem;
+}
+
+
+.info .vento {
+    flex: 1;
+    text-align: center;
+}
+.humidityTitulo,
+.ventoTitulo {
+    color: #06283D;
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+}
+.ventoInfo{
+    font-size: 1.5rem;
+}
+.ventoInfo span {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+.ventoArea {
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid #06283D;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    padding-left: 2.5rem;
+    padding-top: 2.5rem;
+}
+.ventoPonto {
+    width: 1.5rem;
+    height: .1rem;
+    background-color: #FFF;
+    transform-origin: left;
+}
+
+.aviso {
+    color: #edebeb;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+}
+
+footer {
+    margin-top: 2rem;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center;
+}
