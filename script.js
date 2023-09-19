@@ -12,7 +12,7 @@ document.querySelector('.busca').addEventListener('submit', async(event)=>{
     let json=  await results.json()
      
  
-     if(json.cod=== 200){
+     if(json.cod === 200){
       
        showInfo({
           name:json.name,
@@ -25,35 +25,13 @@ document.querySelector('.busca').addEventListener('submit', async(event)=>{
          
        })
        
-       switch (json.weather[0].main) {
-        case 'Clear':
-            image.src = 'images/clear.png';
-            break;
-
-        case 'Rain':
-            image.src = 'images/rain.png';
-            break;
-
-        case 'Snow':
-            image.src = 'img/snow.png';
-            break;
-
-        case 'Clouds':
-            image.src = 'img/cloud.png';
-            break;
-
-        case 'Haze':
-            image.src = 'img/mist.png';
-            break;
-
-        default:
-            image.src = '';
-    }
+    
      }
  
      else{
        clearInfo()
        showWarning('Não encontramos esta localização')
+
      }
  }
  else{
