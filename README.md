@@ -10,7 +10,8 @@
 
 > ## Layout 
 
-![Layout](https://github.com/AmandaLuizaFreitas/Weather-forecast/assets/110351770/653838fb-0581-48ae-8c91-03b521b07dc8)
+![Layout](https://github.com/AmandaLuizaFreitas/Weather-forecast/assets/110351770/bd26f950-1bef-4cc4-bab2-1b7959ed4af8)
 
 ####  Visualizar o projeto através  [ DESSE LINK ](https://weather-forecast-nu-six.vercel.app/)
+
 
