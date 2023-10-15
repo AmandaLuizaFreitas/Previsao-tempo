@@ -10,48 +10,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Previsão do Tempo</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="img/previsao-do-tempo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/clear.png" type="image/x-icon">
+     <!--Icon-->
+     <link rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- or -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-    <main>
     <div class="card">
-
-    <form class="busca">
-        <div class="location">
+        <div class="search-box">
             <i class="ph ph-map-pin"></i>
+            <input type="text" placeholder="Digite a sua localização">
+            <button class="fa-solid fa-magnifying-glass">
+                <i class='bx bx-search-alt'></i>
+               
+            </button>
         </div>
-        <input type="text" id="searchInput" placeholder="Digite a sua localização" />
-        <button><i class="ph ph-magnifying-glass"></i></button>
-    </form>
 
-    <div class="resultado">
-        <div class="titulo">--</div>
-         <div class="info-temp">
-            <div class="temp">
-                
-                <div class="tempInfo">-- <sup>ºC</sup></div>
-                <img class="tempInfoImg" src="http://openweathermap.org/img/wn/10d@2x.png" />
-         </div>
-        <div class="info">
+        <div class="not-found">
+            <img src="assets/img/404.png">
+            <p>Ops! Não encontramos esta localização. </p>
+        </div>
+
+        <div class="weather-box">
+            <div class="title"></div>
+            <img class="tempImg" src="http://openweathermap.org/img/wn/10d@2x.png">
+             
+            <p class="temperature"></p>
+            
+        </div>
+
+        <div class="weather-details">
             <div class="humidity">
-                <div class="humidity-info">--<span>%</span>
-
+                <i class="fa-solid fa-water"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Umidade</p>
                 </div>
-                <div class="humidityTitulo"><i class="ph ph-drop-half">Umidade</i></div>
             </div>
-           
-            <div class="vento">
-                <div class="ventoInfo">-- <span>km/h</span></div>
-                <div class="ventoTitulo"><i class="ph ph-wind"></i> Vento</div>
-                
+            <div class="wind">
+                <i class="fa-solid fa-wind"></i>
+                <div class="text">
+                    <span></span>
+                    <p><i class="ph ph-wind"></i>Vento</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="aviso"></div>
-</div>
-</main>
+    </div>
     <footer>Criador por <a href="#">Amanda luiza</a></footer>
 
     <script src="script.js"></script>

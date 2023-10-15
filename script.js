@@ -1,60 +1,72 @@
-document.querySelector('.busca').addEventListener('submit', async(event)=>{
- 
-  event.preventDefault() 
-  let input = document.querySelector('#searchInput').value
- 
-  if(input !== ''){
-    clearInfo()
-   showWarning('carregando...')
-   
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input)}&lon={lon}&appid=5bf0d2258b2969b795e8fd0836711a1b&units=metric&lang=pt_br`;
- 
-    let results = await fetch(url)
-    let json=  await results.json()
-     
- 
-     if(json.cod=== 200){
-      
-       showInfo({
-          name:json.name,
-          country:json.sys.country,
-          temp:json.main.temp,
-          tempIcon:json.weather[0].icon,
-          windSpeed:json.wind.speed,
-          windAngle:json.wind.deg,
-          humidity:json.main.humidity
-       })
-     }
- 
-     else{
-       clearInfo()
-       showWarning('Não encontramos esta localização')
-       
-     }
+const container = document.querySelector('.card');
+const search = document.querySelector('.search-box button');
+const weatherBox = document.querySelector('.weather-box');
+const weatherDetails = document.querySelector('.weather-details');
+const error404 = document.querySelector('.not-found');
 
-    
- }
- else{
-    clearInfo()
-  }
-  
- })
- 
- function showInfo(json){
-  showWarning('')
-  document.querySelector('.resultado').style.display='block'
-  document.querySelector('.titulo').innerHTML = `${json.name} , ${json.country}`
-  document.querySelector('.tempInfo').innerHTML = `${parseInt(json.temp)} <sup>ºC</sup>`
-  document.querySelector('.humidity-info').innerHTML=`${json.humidity}%`
-  document.querySelector('.ventoInfo').innerHTML = `${json.windSpeed} <span>km/h</span>`
- 
-  document.querySelector('.temp img').setAttribute('src',`http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`)
- }
- function clearInfo(){
-    showWarning('')
-    document.querySelector('.resultado').style.display='none'
- }
- 
- function showWarning(msg){
-  document.querySelector('.aviso').innerHTML= msg
- }
+
+
+search.addEventListener('click', () => {
+
+    const APIKey = '5bf0d2258b2969b795e8fd0836711a1b&units';
+    const city = document.querySelector('.search-box input').value;
+
+    if (city === '')
+        return;
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
+        .then(response => response.json())
+        .then(json => {
+
+            if (json.cod === '404') {
+                container.style.height = '400px';
+                weatherBox.style.display = 'none';
+                weatherDetails.style.display = 'none';
+                error404.style.display = 'block';
+                error404.classList.add('fadeIn');
+                return;
+            }
+            
+           
+            error404.style.display = 'none';
+            error404.classList.remove('fadeIn');
+
+            const image = document.querySelector('.weather-box .tempImg');
+            const temperature = document.querySelector('.weather-box .temperature');
+           
+            const humidity = document.querySelector('.weather-details .humidity span');
+            const wind = document.querySelector('.weather-details .wind span');
+            const title = document.querySelector('.weather-box .title')
+
+            image.setAttribute('src',`http://openweathermap.org/img/wn/${json.weather[0].icon}@2x.png`)
+           
+
+          
+            
+             title.innerHTML = `${json.name} , ${json.sys.country}`;
+        
+            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
+            
+            humidity.innerHTML = `${json.main.humidity}%`;
+            wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+
+           
+             
+            weatherBox.style.display = '';
+            weatherDetails.style.display = '';
+            weatherBox.classList.add('fadeIn');
+            weatherDetails.classList.add('fadeIn');
+            container.style.height = '590px';
+            
+
+
+        });
+
+
+});
+
+
+
+   
+
+
